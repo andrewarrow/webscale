@@ -1,0 +1,28 @@
+app = 'webscale'
+primary_region = 'lax'
+
+[build]
+  [build.args]
+    GO_VERSION = '1.21.0'
+
+[env]
+  PORT = '8080'
+  discovery.type = "single-node"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[[mounts]]
+  source = 'data'
+  destination = '/Users/aa'
+
