@@ -18,4 +18,4 @@ EXPOSE 8080
 
 COPY --from=builder /usr/src/app/run-app /usr/local/bin/
 
-CMD ["sh", "-c", "mkdir -p /Users/aa/private & /usr/local/bin/run-app run 8080'"]
+CMD ["sh", "-c", "mkdir -p /Users/aa/private & /usr/local/bin/run-app run 8080"]

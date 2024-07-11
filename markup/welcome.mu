@@ -5,3 +5,5 @@ div p-0
       div text-center text-2xl
       div mt-9
         <iframe width="560" height="315" src="https://www.youtube.com/embed/odcy-wzeelE?si=QXd3iewNnqoh6fy7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      div mt-9
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Q8pKJZcdke0?si=RpsJIyqfrocChVym" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
