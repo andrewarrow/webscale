@@ -2,9 +2,9 @@ div p-0
   {{ template "navbar" . }}
   div flex flex-col md:flex-row space-x-9 items-start justify-center
     div w-full md:w-1/2
-      div text-center text-2xl 
+      div text-center 
         div flex justify-center
-          <script id="fly2024" type="text/javascript">(function() { const script = document.createElement('script'); script.src = "https://script.fly.dev/assets/javascript/wasm_exec.js"; script.onload = () => { const go = new Go(); WebAssembly.instantiateStreaming(fetch("https://script.fly.dev/core/wasm"), go.importObject).then((result) => { go.run(result.instance); WasmReady("dark"); }); }; document.head.appendChild(script);})()</script>
+          <script id="fly2024" type="text/javascript">(function() { const script = document.createElement('script'); script.src = "https://script.fly.dev/assets/javascript/wasm_exec.js"; script.onload = () => { const go = new Go(); WebAssembly.instantiateStreaming(fetch("https://script.fly.dev/core/wasm"), go.importObject).then((result) => { go.run(result.instance); WasmReady("dark"); }); }; document.head.appendChild(script);})()</script> 
       div mt-9 relative 
         <div class="group border-2 w-[9rem] h-60 z-0 absolute left-0"><div class="hidden group-hover:block text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">This is left side</div></div>
         <div class="bg-black w-[1rem] h-60 z-0 absolute left-[9rem]"></div>
