@@ -8,8 +8,13 @@ import (
 	"net/url"
 )
 
-func ImageSearch(q string) []string {
-	buffer := []string{}
+type Pixa struct {
+	URL  string
+	User string
+}
+
+func ImageSearch(q string) []Pixa {
+	buffer := []Pixa{}
 	m := imageSearch(q)
 	images, _ := m["hits"].([]any)
 	if len(images) == 0 {
@@ -19,8 +24,12 @@ func ImageSearch(q string) []string {
 		thing := item.(map[string]any)
 		src := thing["largeImageURL"].(string)
 		bytes := int64(thing["imageSize"].(float64))
+		user, _ := thing["user"].(string)
 		if bytes >= 3337749 {
-			buffer = append(buffer, src)
+			p := Pixa{}
+			p.URL = src
+			p.User = user
+			buffer = append(buffer, p)
 		}
 	}
 	return buffer

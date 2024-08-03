@@ -39,10 +39,10 @@ func main() {
 	} else if arg == "render" {
 		router.RenderMarkup()
 	} else if arg == "pixabay" {
-		images := pixabay.ImageSearch("test")
-		for i, url := range images {
-			fmt.Println(url)
-			asBytes := pixabay.DownloadImage(url)
+		images := pixabay.ImageSearch(os.Args[2])
+		for i, p := range images {
+			fmt.Println(p.User)
+			asBytes := pixabay.DownloadImage(p.URL)
 			if asBytes == nil {
 				continue
 			}
