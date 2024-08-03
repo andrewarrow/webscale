@@ -43,7 +43,13 @@ func main() {
 		images := pixabay.ImageSearch(q)
 		var offset = 1
 		for i, p := range images {
+			there := fmt.Sprintf("other/%s", p.ID)
+			_, err := os.Stat(there)
+			if err == nil {
+				continue
+			}
 			fmt.Println(p.User)
+
 			asBytes := pixabay.DownloadImage(p.URL)
 			if asBytes == nil {
 				continue
@@ -55,6 +61,10 @@ func main() {
 			file.Close()
 			app.Resize(filename)
 			pixabay.WriteCredit(q, p.User, filename)
+
+			file, _ = os.OpenFile(there, os.O_CREATE|os.O_WRONLY, 0644)
+			file.WriteString("")
+			file.Close()
 		}
 	} else if arg == "run" {
 		router.BuildTag = buildTag
