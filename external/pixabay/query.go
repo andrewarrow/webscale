@@ -11,7 +11,10 @@ import (
 func ImageSearch(q string) []string {
 	buffer := []string{}
 	m := imageSearch(q)
-	images := m["hits"].([]any)
+	images, _ := m["hits"].([]any)
+	if len(images) == 0 {
+		return buffer
+	}
 	for _, item := range images {
 		thing := item.(map[string]any)
 		src := thing["largeImageURL"].(string)
@@ -51,9 +54,27 @@ func imageSearch(q string) map[string]any {
 		return nil
 	}
 
-	//jsonString := string(body)
-	//fmt.Println(jsonString)
+	jsonString := string(body)
+	fmt.Println(jsonString)
 	var m map[string]any
 	json.Unmarshal(body, &m)
 	return m
+}
+
+func DownloadImage(s string) []byte {
+
+	req, _ := http.NewRequest("GET", s, nil)
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return nil
+	}
+	defer resp.Body.Close()
+
+	asBytes, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil
+	}
+	return asBytes
 }

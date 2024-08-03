@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"fmt"
 	"math/rand"
 	"os"
 	"time"
@@ -37,6 +38,19 @@ func main() {
 	if arg == "import" {
 	} else if arg == "render" {
 		router.RenderMarkup()
+	} else if arg == "pixabay" {
+		images := pixabay.ImageSearch("test")
+		for i, url := range images {
+			fmt.Println(url)
+			asBytes := pixabay.DownloadImage(url)
+			if asBytes == nil {
+				continue
+			}
+			fmt.Println(len(asBytes))
+			file, _ := os.OpenFile(fmt.Sprintf("data/%04d.jpg", i+1), os.O_CREATE|os.O_WRONLY, 0644)
+			file.Write(asBytes)
+			file.Close()
+		}
 	} else if arg == "run" {
 		router.BuildTag = buildTag
 		router.EmbeddedTemplates = embeddedTemplates
