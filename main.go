@@ -39,19 +39,21 @@ func main() {
 	} else if arg == "render" {
 		router.RenderMarkup()
 	} else if arg == "pixabay" {
-		images := pixabay.ImageSearch(os.Args[2])
+		q := os.Args[2]
+		images := pixabay.ImageSearch(q)
+		var offset = 129
 		for i, p := range images {
 			fmt.Println(p.User)
 			asBytes := pixabay.DownloadImage(p.URL)
 			if asBytes == nil {
 				continue
 			}
-			filename := fmt.Sprintf("data/%04d.jpg", i+1)
+			filename := fmt.Sprintf("data/%04d.jpg", i+offset)
 			fmt.Println(len(asBytes))
 			file, _ := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0644)
 			file.Write(asBytes)
 			file.Close()
-			pixabay.WriteCredit(p.User, filename)
+			pixabay.WriteCredit(q, p.User, filename)
 		}
 	} else if arg == "run" {
 		router.BuildTag = buildTag

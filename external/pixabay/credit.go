@@ -5,11 +5,11 @@ import (
 	"os/exec"
 )
 
-func WriteCredit(user, filename string) {
+func WriteCredit(q, user, filename string) {
 	/*
 		convert data/0004.jpg -gravity South -pointsize 36 -stroke '#000C' -strokewidth 2 -annotate +0+20 'pixabay.com/users/geof08-36360517' -stroke none -fill white -annotate +0+20 'pixabay.com/users/geof08-36360517' output.png
 	*/
-	slug := fmt.Sprintf("pixabay.com/users/%s", user)
+	slug := fmt.Sprintf("%s pixabay.com/users/%s", q, user)
 	cmd := exec.Command(
 		"convert",
 		filename,
