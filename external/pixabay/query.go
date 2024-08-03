@@ -26,11 +26,11 @@ func ImageSearch(q string) []Pixa {
 		src := thing["largeImageURL"].(string)
 		bytes := int64(thing["imageSize"].(float64))
 		user, _ := thing["user"].(string)
-		id, _ := thing["id"].(int64)
+		id, _ := thing["id"].(float64)
 		if bytes >= 3337749 {
 			p := Pixa{}
 			p.URL = src
-			p.ID = fmt.Sprintf("%d", id)
+			p.ID = fmt.Sprintf("%d", int64(id))
 			p.User = user
 			buffer = append(buffer, p)
 		}
