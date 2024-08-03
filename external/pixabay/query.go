@@ -66,8 +66,8 @@ func imageSearch(q string) map[string]any {
 		return nil
 	}
 
-	jsonString := string(body)
-	fmt.Println(jsonString)
+	//jsonString := string(body)
+	//fmt.Println(jsonString)
 	var m map[string]any
 	json.Unmarshal(body, &m)
 	return m

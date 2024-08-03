@@ -46,6 +46,7 @@ func main() {
 			there := fmt.Sprintf("other/%s", p.ID)
 			_, err := os.Stat(there)
 			if err == nil {
+				fmt.Println("SKIPPING", p.ID, p.URL)
 				continue
 			}
 			fmt.Println(p.User)

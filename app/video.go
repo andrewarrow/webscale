@@ -1,7 +1,6 @@
 package app
 
 import (
-	"fmt"
 	"os/exec"
 )
 
@@ -21,5 +20,7 @@ func Resize(filename string) {
 		filename,
 	)
 	o, err := cmd.CombinedOutput()
-	fmt.Println(string(o), err)
+	_ = o
+	_ = err
+	//fmt.Println(string(o), err)
 }
