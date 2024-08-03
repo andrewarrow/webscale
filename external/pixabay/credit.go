@@ -24,5 +24,5 @@ func WriteCredit(user, filename string) {
 		filename,
 	)
 	o, err := cmd.CombinedOutput()
-	fmt.Println(o, err)
+	fmt.Println(string(o), err)
 }
