@@ -7,6 +7,8 @@ import (
 /*
 
 ffmpeg -framerate 1 -i %04d.jpg -t 194 -pix_fmt yuv420p black.mp4
+ffmpeg -framerate 1/2 -pattern_type glob -i '*.jpg' -t 194 -pix_fmt yuv420p output.mp4
+
 
 */
 
