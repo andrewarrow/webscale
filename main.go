@@ -46,10 +46,12 @@ func main() {
 			if asBytes == nil {
 				continue
 			}
+			filename := fmt.Sprintf("data/%04d.jpg", i+1)
 			fmt.Println(len(asBytes))
-			file, _ := os.OpenFile(fmt.Sprintf("data/%04d.jpg", i+1), os.O_CREATE|os.O_WRONLY, 0644)
+			file, _ := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0644)
 			file.Write(asBytes)
 			file.Close()
+			pixabay.WriteCredit(p.User, filename)
 		}
 	} else if arg == "run" {
 		router.BuildTag = buildTag
