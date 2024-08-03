@@ -41,7 +41,7 @@ func main() {
 	} else if arg == "pixabay" {
 		q := os.Args[2]
 		images := pixabay.ImageSearch(q)
-		var offset = 129
+		var offset = 1
 		for i, p := range images {
 			fmt.Println(p.User)
 			asBytes := pixabay.DownloadImage(p.URL)
@@ -53,6 +53,7 @@ func main() {
 			file, _ := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0644)
 			file.Write(asBytes)
 			file.Close()
+			app.Resize(filename)
 			pixabay.WriteCredit(q, p.User, filename)
 		}
 	} else if arg == "run" {
