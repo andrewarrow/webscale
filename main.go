@@ -6,6 +6,7 @@ import (
 	"os"
 	"time"
 	"webscale/app"
+	"webscale/external/pixabay"
 
 	"github.com/andrewarrow/feedback/router"
 )
@@ -30,6 +31,8 @@ func main() {
 
 	arg := os.Args[1]
 	router.DB_FLAVOR = "sqlite"
+
+	pixabay.Init()
 
 	if arg == "import" {
 	} else if arg == "render" {
