@@ -41,7 +41,7 @@ func main() {
 	} else if arg == "pixabay" {
 		q := os.Args[2]
 		images := pixabay.ImageSearch(q)
-		var offset = 1
+		var offset = 129
 		for i, p := range images {
 			there := fmt.Sprintf("other/%s", p.ID)
 			_, err := os.Stat(there)
