@@ -46,7 +46,7 @@ func imageSearch(q string) map[string]any {
 	urlS := "https://pixabay.com/api?q=" + url.QueryEscape(q) + "&key=" + apiKey +
 		"&category=feelings&image_type=photo&orientation=horizontal&min_width=600&editors_choice=true"
 	urlS = "https://pixabay.com/api?q=" + url.QueryEscape(q) + "&key=" + apiKey +
-		"&orientation=horizontal&image_type=photo&min_width=600&editors_choice=false"
+		"&orientation=horizontal&image_type=photo&min_width=600&editors_choice=false&per_page=200&order=latest"
 	req, _ := http.NewRequest("GET", urlS, nil)
 
 	client := &http.Client{}
