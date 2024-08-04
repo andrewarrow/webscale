@@ -28,7 +28,7 @@ func WriteCredit(q, user, filename string) {
 		"-pointsize", "18",
 		"-stroke", "#00AA00",
 		"-strokewidth", "1",
-		"-annotate", "+0+20", slug,
+		"-annotate", "+0+30", slug,
 		filename,
 	)
 	o, err = cmd.CombinedOutput()
