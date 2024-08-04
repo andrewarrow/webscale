@@ -7,7 +7,8 @@ import (
 /*
 
 ffmpeg -framerate 1 -i %04d.jpg -t 194 -pix_fmt yuv420p black.mp4
-ffmpeg -framerate 1/2 -pattern_type glob -i '*.jpg' -t 194 -pix_fmt yuv420p output.mp4
+
+ffmpeg -framerate 1/2 -pattern_type glob -i '*.jpg' -vf "eq=brightness=0:contrast=1:saturation=1"  -t 87 -pix_fmt yuv420p ../bright.mp4
 
 
 */
