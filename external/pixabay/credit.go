@@ -16,7 +16,8 @@ func WriteCredit(q, user, filename string) {
 		filename,
 		"-fill", "black",
 		//		"-draw", "rectangle %[fx:(w/2)-400],%[fx:h-60] %[fx:(w/2)+400],%[fx:h-20]",
-		"-draw", "rectangle %[fx:(w/2)-400],%[fx:60] %[fx:(w/2)+400],%[fx:120]",
+		//"-draw", "rectangle %[fx:(w/2)-400],%[fx:60] %[fx:(w/2)+400],%[fx:120]",
+		"-draw", "roundrectangle %[fx:(w/2)-400],%[fx:60] %[fx:(w/2)+400],%[fx:120] 30,30",
 
 		filename,
 	)

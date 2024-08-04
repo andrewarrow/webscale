@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"strconv"
 	"time"
 	"webscale/app"
 	"webscale/external/pixabay"
@@ -42,6 +43,8 @@ func main() {
 		q := os.Args[2]
 		images := pixabay.ImageSearch(q)
 		var offset = 1
+		offsetParamInt, _ := strconv.Atoi(os.Args[3])
+		offset = offsetParamInt
 		for i, p := range images {
 			there := fmt.Sprintf("other/%s", p.ID)
 			_, err := os.Stat(there)
