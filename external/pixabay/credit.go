@@ -15,20 +15,22 @@ func WriteCredit(q, user, filename string) {
 		"magick",
 		filename,
 		"-fill", "black",
-		"-draw", "rectangle %[fx:(w/2)-400],%[fx:h-60] %[fx:(w/2)+400],%[fx:h-20]",
+		//		"-draw", "rectangle %[fx:(w/2)-400],%[fx:h-60] %[fx:(w/2)+400],%[fx:h-20]",
+		"-draw", "rectangle %[fx:(w/2)-400],%[fx:60] %[fx:(w/2)+400],%[fx:120]",
+
 		filename,
 	)
 	o, err := cmd.CombinedOutput()
 	cmd = exec.Command(
 		"convert",
 		filename,
-		"-gravity", "South",
+		"-gravity", "North",
 		"-fill", "green",
 		"-font", "/System/Library/Fonts/Supplemental/Andale Mono.ttf",
 		"-pointsize", "18",
 		"-stroke", "#00AA00",
 		"-strokewidth", "1",
-		"-annotate", "+0+30", slug,
+		"-annotate", "+0+80", slug,
 		filename,
 	)
 	o, err = cmd.CombinedOutput()
